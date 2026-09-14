@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: stockwell
+    runtime: static
+    buildCommand: ""
+    outputDir: .
+    routes:
+      - type: rewrite
+        source: /master
+        destination: /master.html
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: no-cache
